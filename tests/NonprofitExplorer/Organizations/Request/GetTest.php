@@ -5,6 +5,7 @@ namespace AdamTheHutt\ProPublica\Tests\NonprofitExplorer\Organizations\Request;
 
 use AdamTheHutt\ProPublica\NonprofitExplorer\Organizations\Request;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /** @covers \AdamTheHutt\ProPublica\NonprofitExplorer\Organizations\Request::get */
 class GetTest extends TestCase
@@ -22,8 +23,6 @@ class GetTest extends TestCase
     {
         $result = (new Request())->get("53-0196605"); # American Red Cross
 
-        $this->assertInstanceOf(\stdClass::class, $result);
-
-        print_r($result);
+        $this->assertInstanceOf(stdClass::class, $result);
     }
 }
