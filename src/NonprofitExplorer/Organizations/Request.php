@@ -11,6 +11,7 @@ class Request
 
     public function get(string $ein): ?stdClass
     {
+        $ein = Organization::normalizeEin($ein);
         if (!$this->validEin($ein)) {
             return null;
         }
