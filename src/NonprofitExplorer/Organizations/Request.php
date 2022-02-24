@@ -19,6 +19,10 @@ class Request
         $json = file_get_contents($this->url($ein));
         $data = json_decode($json);
 
+        if (!$data?->organization?->name || "Unknown Organization" === $data->organization->name) {
+            return null;
+        }
+
         $response               = new stdClass();
         $response->organization = new Organization();
         $response->organization->hydrate($data->organization);
